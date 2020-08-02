@@ -1,3 +1,20 @@
 <html>
 It works!
+<script type="text/javascript">
+  console.log("HELLO")
+
+  var xmlhttp = new XMLHttpRequest();
+  var url = "/data/hi.json";
+
+  xmlhttp.onreadystatechange = function() {
+    console.log("STATUS:", this.status);
+    if (this.readyState == 4 && this.status == 200) {
+      var myArr = JSON.parse(this.responseText);
+      console.log("ARRAY", myArr);
+    }
+  }
+
+  xmlhttp.open("GET", url, true);
+  xmlhttp.send();
+</script>
 </html>
